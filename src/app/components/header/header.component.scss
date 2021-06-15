@@ -1,10 +1,18 @@
 .header {
   margin: 20px 0;
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
 
   &__text {
-    padding: 20px;
     text-align: center;
-    background-color: #222;
-    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
   }
 }
