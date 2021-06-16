@@ -1,6 +1,7 @@
 <div class="todo">
   <ul *ngIf="tasks.length > 0; else nothing" class="todo__tasks">
     <li *ngFor="let task of tasks; let i = index" class="todo__task">
+
       <span class="todo__status">
         {{ task.isDone ? '✅' : '❌' }}
       </span>
@@ -11,6 +12,11 @@
       
       <p class="todo__description">
         {{ task.description }}
+      </p>
+
+      <p class="todo__code">
+        <!-- data pipe -->
+        {{task | json}}
       </p>
     </li>
   </ul>
