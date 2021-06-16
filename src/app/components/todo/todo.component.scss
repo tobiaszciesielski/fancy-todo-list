@@ -1,0 +1,32 @@
+.todo {
+  margin: 20px 0;
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
+
+  &__tasks {
+    padding: 30px;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__task {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+
+  &__description {
+    margin-left: 50px;
+    opacity: 0.8;
+  }
+
+  &__status {
+    margin-right: 10px;
+  }
+}

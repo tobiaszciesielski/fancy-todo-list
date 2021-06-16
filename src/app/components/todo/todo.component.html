@@ -1,0 +1,20 @@
+<div class="todo">
+  <ul *ngIf="tasks.length > 0; else nothing" class="todo__tasks">
+    <li *ngFor="let task of tasks; let i = index" class="todo__task">
+      <span class="todo__status">
+        {{ task.isDone ? '✅' : '❌' }}
+      </span>
+      
+      <h3 class="todo__name">
+        {{ i + 1 }}. {{ task.name }}
+      </h3>
+      
+      <p class="todo__description">
+        {{ task.description }}
+      </p>
+    </li>
+  </ul>
+  <ng-template #nothing>
+    <h2>Nothing to do🍻</h2>
+  </ng-template>
+</div>

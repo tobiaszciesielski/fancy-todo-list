@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <div class="app">
       <div class="container">
         <app-header></app-header>
+        <app-todo></app-todo>
       </div>
     </div>
   `,
