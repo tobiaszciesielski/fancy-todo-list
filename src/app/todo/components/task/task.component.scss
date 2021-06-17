@@ -25,4 +25,17 @@
     opacity: 0.5;
     text-align: right;
   }
+
+  &__edit {
+    background: none;
+    border: none;
+    color: #eee;
+    font-size: 18.72px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    width: 60%;
+    &:focus {
+      outline: 1px solid rgba(238, 238, 238, 0.5);
+    }
+  }
 }

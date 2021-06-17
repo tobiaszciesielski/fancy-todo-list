@@ -3,7 +3,18 @@
     {{ task?.isDone ? '✅' : '❌' }}
   </span>
 
-  <h3 class="task__name">{{ index }}. {{ task?.name }}</h3>
+  <h3 (click)="toggleEdit()" class="task__name">
+    {{ index }}.
+    <span *ngIf="!editMode">
+      {{ task?.name }}
+    </span>
+  </h3>
+  <input
+    *ngIf="editMode"
+    (blur)="handleNameChange($event)"
+    [value]="task?.name"
+    class="task__edit task__edit--name"
+  />
 
   <p class="task__description">
     {{ task?.description }}

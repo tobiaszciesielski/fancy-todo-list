@@ -1,4 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+} from '@angular/core';
 import { Task } from '../../models/Task';
 
 @Component({
@@ -7,10 +14,19 @@ import { Task } from '../../models/Task';
   styleUrls: ['./task.component.scss'],
 })
 export class TaskComponent implements OnInit {
-  @Input() task?: Task;
-  @Input() index?: number;
+  @Input() task!: Task;
+  @Input() index!: number;
+  editMode: boolean = false;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  toggleEdit() {
+    this.editMode = !this.editMode;
+  }
+
+  handleNameChange(event: any) {
+    this.task.name = event.target.value;
+  }
 }
