@@ -4,6 +4,7 @@ interface Task {
   name: string;
   isDone: boolean;
   description: string;
+  date?: string;
 }
 
 @Component({
@@ -17,11 +18,13 @@ export class TodoComponent implements OnInit {
       name: 'Shopping 🛒',
       isDone: true,
       description: 'Buy one banana and two sprites',
+      date: '21-04-2021'
     },
     {
       name: 'Date with wife 👩‍❤️',
       isDone: false,
       description: 'Cook shrimps and buy white wine',
+      date: '23-04-2021'
     },
     {
       name: 'Make Angular course 50% done 🧠',
