@@ -1,0 +1,20 @@
+<li class="task">
+  <span class="task__status">
+    {{ task?.isDone ? '✅' : '❌' }}
+  </span>
+
+  <h3 class="task__name">{{ index }}. {{ task?.name }}</h3>
+
+  <p class="task__description">
+    {{ task?.description }}
+  </p>
+
+  <p class="task__code">
+    <!-- data pipe -->
+    {{ task | json }}
+  </p>
+
+  <h5 class="task__date">
+    {{ task?.date }}
+  </h5>
+</li>

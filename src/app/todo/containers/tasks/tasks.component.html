@@ -1,0 +1,14 @@
+<div class="tasks">
+  <app-summary [items]="tasks"></app-summary>
+  <ul *ngIf="tasks.length > 0; else nothing" class="tasks__list">
+    <app-task
+      *ngFor="let task of tasks; let i = index"
+      [index]="i"
+      [task]="task"
+    >
+    </app-task>
+  </ul>
+  <ng-template #nothing>
+    <h2>Nothing to do🍻</h2>
+  </ng-template>
+</div>

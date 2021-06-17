@@ -1,20 +1,5 @@
-.tasks {
-  margin: 20px 0;
-  background-color: #222;
-  border-radius: 20px;
-  padding: 20px;
-
-  &__list {
-    padding: 30px;
-    margin: 0;
-    list-style: none;
-  }
-
-  &__item {
-    &:not(:last-child) {
-      margin-bottom: 30px;
-    }
-  }
+.task {
+  margin-bottom: 30px;
 
   &__name {
     display: inline-block;
@@ -25,18 +10,18 @@
     margin-left: 50px;
     opacity: 0.8;
   }
-  
+
   &__status {
     margin-right: 10px;
   }
-  
+
   &__code {
     margin-left: 50px;
     font-size: 12px;
     opacity: 0.2;
   }
-  
-  &__date {    
+
+  &__date {
     opacity: 0.5;
     text-align: right;
   }

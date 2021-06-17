@@ -1,0 +1,10 @@
+.summary {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+
+  &__item {
+    display: inline;
+  }
+}
