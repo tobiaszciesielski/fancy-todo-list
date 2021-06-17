@@ -28,5 +28,6 @@ export class TaskComponent implements OnInit {
 
   handleNameChange(event: any) {
     this.task.name = event.target.value;
+    this.toggleEdit();
   }
 }
