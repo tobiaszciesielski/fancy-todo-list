@@ -1,16 +1,16 @@
-.todo {
+.tasks {
   margin: 20px 0;
   background-color: #222;
   border-radius: 20px;
   padding: 20px;
 
-  &__tasks {
+  &__list {
     padding: 30px;
     margin: 0;
     list-style: none;
   }
 
-  &__task {
+  &__item {
     &:not(:last-child) {
       margin-bottom: 30px;
     }

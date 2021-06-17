@@ -8,23 +8,23 @@ interface Task {
 }
 
 @Component({
-  selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
+  selector: 'app-tasks',
+  templateUrl: './tasks.component.html',
+  styleUrls: ['./tasks.component.scss'],
 })
-export class TodoComponent implements OnInit {
-  tasks = [
+export class TasksComponent implements OnInit {
+  tasks: Task[] = [
     {
       name: 'Shopping 🛒',
       isDone: true,
       description: 'Buy one banana and two sprites',
-      date: '21-04-2021'
+      date: '21-04-2021',
     },
     {
       name: 'Date with wife 👩‍❤️',
       isDone: false,
       description: 'Cook shrimps and buy white wine',
-      date: '23-04-2021'
+      date: '23-04-2021',
     },
     {
       name: 'Make Angular course 50% done 🧠',

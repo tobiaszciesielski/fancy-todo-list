@@ -1,0 +1,27 @@
+<div class="tasks">
+  <ul *ngIf="tasks.length > 0; else nothing" class="tasks__list">
+    <li *ngFor="let task of tasks; let i = index" class="tasks__item">
+      <span class="tasks__status">
+        {{ task.isDone ? '✅' : '❌' }}
+      </span>
+
+      <h3 class="tasks__name">{{ i + 1 }}. {{ task.name }}</h3>
+
+      <p class="tasks__description">
+        {{ task.description }}
+      </p>
+
+      <p class="tasks__code">
+        <!-- data pipe -->
+        {{ task | json }}
+      </p>
+
+      <h5 class="tasks__date">
+        {{ task.date }}
+      </h5>
+    </li>
+  </ul>
+  <ng-template #nothing>
+    <h2>Nothing to do🍻</h2>
+  </ng-template>
+</div>
