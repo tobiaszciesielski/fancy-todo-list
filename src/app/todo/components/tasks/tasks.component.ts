@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Task {
-  name: string;
-  isDone: boolean;
-  description: string;
-  date?: string;
-}
+import { Task } from '../../models/Task';
 
 @Component({
   selector: 'app-tasks',
