@@ -1,5 +1,11 @@
 .task {
-  margin-bottom: 30px;
+  display: flex;
+  margin-bottom: 40px;
+  gap: 20px;
+
+  &__body {
+    position: relative;
+  }
 
   &__name {
     display: inline-block;
@@ -22,8 +28,11 @@
   }
 
   &__date {
+    position: absolute;
     opacity: 0.5;
     text-align: right;
+    top: calc(100% + 5px);
+    right: 0;
   }
 
   &__edit {
@@ -37,5 +46,12 @@
     &:focus {
       outline: 1px solid rgba(238, 238, 238, 0.5);
     }
+  }
+
+  &__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
   }
 }

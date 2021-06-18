@@ -1,31 +1,37 @@
 <li class="task">
-  <span class="task__status">
-    {{ task?.isDone ? '✅' : '❌' }}
-  </span>
-
-  <h3 (click)="toggleEdit()" class="task__name">
-    {{ index }}.
-    <span *ngIf="!editMode">
-      {{ task?.name }}
+  <div class="task__body">
+    <span class="task__status">
+      {{ task?.isDone ? '✅' : '❌' }}
     </span>
-  </h3>
-  <input
-    *ngIf="editMode"
-    (blur)="handleNameChange($event)"
-    [value]="task?.name"
-    class="task__edit task__edit--name"
-  />
 
-  <p class="task__description">
-    {{ task?.description }}
-  </p>
+    <h3 (click)="toggleEdit()" class="task__name">
+      {{ index }}.
+      <span *ngIf="!editMode">
+        {{ task?.name }}
+      </span>
+    </h3>
+    <input
+      *ngIf="editMode"
+      (blur)="handleNameChange($event)"
+      [value]="task?.name"
+      class="task__edit task__edit--name"
+    />
 
-  <p class="task__code">
-    <!-- data pipe -->
-    {{ task | json }}
-  </p>
+    <p class="task__description">
+      {{ task?.description }}
+    </p>
 
-  <h5 class="task__date">
-    {{ task?.date }}
-  </h5>
+    <p class="task__code">
+      <!-- data pipe -->
+      {{ task | json }}
+    </p>
+
+    <h5 class="task__date">
+      {{ task?.date }}
+    </h5>
+  </div>
+  <div class="task__controls">
+    <app-button text="Complete" color="#d1a52c"></app-button>
+    <app-button text="Delete" color="#b91d1d"></app-button>
+  </div>
 </li>
