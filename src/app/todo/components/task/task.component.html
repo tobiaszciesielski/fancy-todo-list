@@ -6,15 +6,18 @@
 
     <h3 (click)="toggleEdit()" class="task__name">
       {{ index }}.
+
       <span *ngIf="!editMode">
         {{ task?.name }}
       </span>
     </h3>
+
     <input
       *ngIf="editMode"
-      (blur)="handleNameChange($event)"
+      (blur)="onRename($event)"
       [value]="task?.name"
       class="task__edit task__edit--name"
+      #inputField
     />
 
     <p class="task__description">
@@ -30,12 +33,14 @@
       {{ task?.date }}
     </h5>
   </div>
+
   <div class="task__controls">
     <app-button
-      (btnClick)="toggleStatusChange()"
+      (btnClick)="onStatusChange()"
       text="{{ task.isDone ? 'Undo' : 'Complete' }}"
       color="#d1a52c"
     ></app-button>
+
     <app-button
       (btnClick)="onRemove()"
       text="Delete"

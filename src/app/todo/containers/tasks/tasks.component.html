@@ -6,6 +6,8 @@
       [index]="i"
       [task]="task"
       (remove)="handleRemove($event)"
+      (rename)="handleRename($event)"
+      (toggleStatus)="toggleStatus($event)"
     >
     </app-task>
   </ul>

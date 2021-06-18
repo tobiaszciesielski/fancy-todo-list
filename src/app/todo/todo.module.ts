@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Services
 import { TodoService } from './todo.service';
@@ -23,7 +24,7 @@ import { TaskComponent } from './components/task/task.component';
     TodoComponent,
     TaskComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
   exports: [TodoComponent],
   providers: [TodoService],
 })

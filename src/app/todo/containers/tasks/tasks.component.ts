@@ -16,7 +16,25 @@ export class TasksComponent implements OnInit {
     this.tasks = this.todoService.getTasks();
   }
 
-  handleRemove(task: Task) {
-    this.tasks = this.tasks.filter((t) => t !== task);
+  handleRemove({ id }: any) {
+    this.tasks = this.tasks.filter((t) => t.id !== id);
+  }
+
+  handleRename({ id, name }: any) {
+    this.tasks = this.tasks.map((task) => {
+      if (task.id === id) {
+        task = Object.assign({}, task, { name });
+      }
+      return task;
+    });
+  }
+
+  toggleStatus({ id }: any) {
+    this.tasks = this.tasks.map((task) => {
+      if (task.id === id) {
+        task.isDone = !task.isDone;
+      }
+      return task;
+    });
   }
 }
