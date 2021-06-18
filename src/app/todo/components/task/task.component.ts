@@ -20,6 +20,10 @@ export class TaskComponent implements OnInit {
     this.editMode = !this.editMode;
   }
 
+  toggleStatusChange() {
+    this.task.isDone = !this.task.isDone;
+  }
+
   handleNameChange(event: any) {
     this.task.name = event.target.value;
     this.toggleEdit();
