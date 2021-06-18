@@ -32,6 +32,10 @@
   </div>
   <div class="task__controls">
     <app-button text="Complete" color="#d1a52c"></app-button>
-    <app-button text="Delete" color="#b91d1d"></app-button>
+    <app-button
+      (btnClick)="onRemove()"
+      text="Delete"
+      color="#b91d1d"
+    ></app-button>
   </div>
 </li>

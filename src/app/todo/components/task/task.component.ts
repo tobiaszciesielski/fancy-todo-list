@@ -1,11 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-} from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Task } from '../../models/Task';
 
 @Component({
@@ -16,6 +9,7 @@ import { Task } from '../../models/Task';
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
   @Input() index!: number;
+  @Output() remove = new EventEmitter<Task>();
   editMode: boolean = false;
 
   constructor() {}
@@ -29,5 +23,9 @@ export class TaskComponent implements OnInit {
   handleNameChange(event: any) {
     this.task.name = event.target.value;
     this.toggleEdit();
+  }
+
+  onRemove() {
+    this.remove.emit(this.task);
   }
 }
