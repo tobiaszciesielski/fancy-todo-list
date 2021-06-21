@@ -13,7 +13,12 @@ export class TasksComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.tasks = this.todoService.getTasks();
+    this.todoService
+      .getTasks()
+      .subscribe((data: Task[]) => {
+        console.log(data)
+        this.tasks = data;
+    });
   }
 
   handleRemove({ id }: any) {

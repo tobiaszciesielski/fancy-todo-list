@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // Services
 import { TodoService } from './todo.service';
+import { InMemoryDataService } from './services/inMemoryData/in-memory-data.service';
 
 // Containers
 import { TodoComponent } from './todo.component';
@@ -24,7 +26,15 @@ import { TaskComponent } from './components/task/task.component';
     TodoComponent,
     TaskComponent,
   ],
-  imports: [CommonModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 1000,
+    }),
+  ],
   exports: [TodoComponent],
   providers: [TodoService],
 })
