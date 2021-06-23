@@ -1,0 +1,35 @@
+.form {
+  padding: 30px;
+  background-color: #222;
+  border-radius: 20px;
+
+  &__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    position: relative;
+  }
+
+  &__text {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+
+  &__input {
+    padding: 10px 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: #444;
+    color: #eee;
+  }
+
+  &__error {
+    color: #fa2222;
+    position: absolute;
+    font-size: 12px;
+    top: 100%;
+    margin-left: 5px;
+  }
+}
