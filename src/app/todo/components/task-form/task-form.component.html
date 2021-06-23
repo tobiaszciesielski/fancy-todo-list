@@ -47,7 +47,7 @@
         type="checkbox" 
       />
     </label>
-
-    <app-button type="submit"></app-button>
+    
+    <app-button [text]="'Submit'" [color]="'#1763ef'" [type]="'submit'" [disabled]="form.invalid ? true : false"></app-button>
   </form>
   
