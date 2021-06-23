@@ -9,6 +9,7 @@ export class ButtonComponent {
   @Input() text!: string;
   @Input() color!: string;
   @Input() disabled: boolean = false;
+  @Input() type: string = "button";
   @Output() btnClick = new EventEmitter();
 
   constructor() {}
