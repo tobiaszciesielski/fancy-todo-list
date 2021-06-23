@@ -16,6 +16,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { TasksComponent } from './containers/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
+import { TaskViewerComponent } from './containers/task-viewer/task-viewer.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TaskComponent } from './components/task/task.component';
     HeaderComponent,
     SummaryComponent,
     TasksComponent,
+    TaskViewerComponent,
     TodoComponent,
     TaskComponent,
   ],

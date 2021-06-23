@@ -16,6 +16,10 @@ export class TodoService {
     return this.httpClient.get<Task[]>(TASK_API);
   }
 
+  getTask(id: number): Observable<Task> {
+    return this.httpClient.get<Task>(`${TASK_API}/${id}`);
+  }
+
   updateTask(task: Task): Observable<Task> {
     return this.httpClient.put<Task>(`${TASK_API}/${task.id}`, task);
   }
