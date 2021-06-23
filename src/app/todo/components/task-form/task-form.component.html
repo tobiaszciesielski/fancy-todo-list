@@ -1,7 +1,44 @@
-<form novalidate>
+{{ form.value | json }}
+<form #form="ngForm" novalidate>
   <div>
     <label>Name:</label>
-    <input />
+    <input 
+      [ngModel]="detail?.name" 
+      name="name" 
+      type="text" 
+    />
   </div>
-  {{ detail | json }}
-</form>
+  <div>
+    <label>Id:</label>
+    <input 
+      [ngModel]="detail?.id" 
+      name="id" 
+      type="number" 
+    />
+  </div>
+  <div>
+    Status:
+    <label>
+      <input 
+      [ngModel]="detail?.isDone" 
+      (ngModelChange)="toggleChange($event)"
+      [value]="true"
+      name="isDone" 
+      type="radio" 
+      />
+      Done
+    </label>
+    <label>
+      <input 
+      [ngModel]="detail?.isDone" 
+      (ngModelChange)="toggleChange($event)"
+      [value]="false"
+      name="isDone" 
+      type="radio" 
+      />
+      Todo
+    </label>
+  </div>
+    {{ detail | json }}
+  </form>
+  

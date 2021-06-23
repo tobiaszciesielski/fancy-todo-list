@@ -13,4 +13,8 @@ export class TaskFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  toggleChange(event: boolean) {
+    this.detail.isDone = event;
+  }
 }
