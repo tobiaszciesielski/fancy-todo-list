@@ -13,25 +13,33 @@ export class TasksComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
+    this.todoService.getTasks().subscribe((data: Task[]) => {
+      this.tasks = data;
+    });
+  }
+
+  handleRemove(task: Task) {
     this.todoService
-      .getTasks()
-      .subscribe((data: Task[]) => {
-        console.log(data)
-        this.tasks = data;
-    });
+      .deleteTask(task)
+      .subscribe((_) => {
+        this.tasks = this.tasks
+          .filter((t) => t.id !== task.id);
+        this.todoService.getTasks()
+      })
   }
 
-  handleRemove({ id }: any) {
-    this.tasks = this.tasks.filter((t) => t.id !== id);
-  }
-
-  handleRename({ id, name }: any) {
-    this.tasks = this.tasks.map((task) => {
-      if (task.id === id) {
-        task = Object.assign({}, task, { name });
-      }
-      return task;
-    });
+  handleRename({ task, name }: any) {
+    task.name = name;
+    this.todoService
+      .updateTask(task)
+      .subscribe((_) => {
+        this.tasks = this.tasks.map((t) => {
+          if (task.id === t.id) {
+            task = Object.assign({}, task, { name });
+          }
+          return t;
+        });
+      });
   }
 
   toggleStatus({ id }: any) {

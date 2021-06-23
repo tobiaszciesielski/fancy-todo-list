@@ -18,8 +18,8 @@ import { Task } from '../../models/Task';
 export class TaskComponent implements OnInit {
   @Input() task!: Task;
   @Input() index!: number;
-  @Output() remove = new EventEmitter<{ id: number }>();
-  @Output() rename = new EventEmitter<{ id: number; name: string }>();
+  @Output() remove = new EventEmitter<Task>();
+  @Output() rename = new EventEmitter<{ task: Task; name: string }>();
   @Output() toggleStatus = new EventEmitter<{ id: number }>();
   @ViewChild('inputField') inputField!: ElementRef;
   editMode: boolean = false;
@@ -30,7 +30,7 @@ export class TaskComponent implements OnInit {
 
   onRename(event: any) {
     const name = event.target.value;
-    this.rename.emit({ id: this.task.id, name });
+    this.rename.emit({ task: this.task, name });
     this.toggleEdit();
   }
 
@@ -47,6 +47,6 @@ export class TaskComponent implements OnInit {
   }
 
   onRemove() {
-    this.remove.emit({ id: this.task.id });
+    this.remove.emit(this.task);
   }
 }
