@@ -11,7 +11,7 @@
         required
       />
       <div 
-        *ngIf="name.errors?.required "
+        *ngIf="name.errors?.required && name.touched"
         class="form__error"
       >
         Please enter task title
@@ -28,7 +28,7 @@
         required
       />
       <div 
-        *ngIf="name.errors?.required "
+        *ngIf="name.errors?.required && name.touched"
         class="form__error"
       >
         Please enter task id
@@ -45,7 +45,6 @@
         type="checkbox" 
       />
     </label>
-    <!-- {{ detail | json }} -->
     <div>Is form valid: {{form.valid}}</div>
   </form>
   
