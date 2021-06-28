@@ -1,7 +1,8 @@
 .task {
   display: flex;
-  margin-bottom: 40px;
-  gap: 20px;
+  flex-direction: column;
+  margin-bottom: 35px;
+  gap: 25px;
 
   &__body {
     position: relative;
@@ -21,18 +22,12 @@
     margin-right: 10px;
   }
 
-  &__code {
-    margin-left: 50px;
-    font-size: 12px;
-    opacity: 0.2;
-  }
-
   &__date {
     position: absolute;
     opacity: 0.5;
     text-align: right;
     top: calc(100% + 5px);
-    right: 0;
+    right: 25px;
   }
 
   &__edit {
@@ -50,7 +45,6 @@
 
   &__controls {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     gap: 10px;
   }

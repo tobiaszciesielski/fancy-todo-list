@@ -24,11 +24,6 @@
       {{ task?.description }}
     </p>
 
-    <p class="task__code">
-      <!-- data pipe -->
-      {{ task | json }}
-    </p>
-
     <h5 class="task__date">
       {{ task?.date }}
     </h5>
@@ -47,10 +42,6 @@
       color="#b91d1d"
     ></app-button>
 
-    <app-button
-      (btnClick)="showTask()"
-      text="View"
-      color="#888"
-    ></app-button>
+    <app-button (btnClick)="showTask()" text="View" color="#888"></app-button>
   </div>
 </li>

@@ -37,6 +37,17 @@
   </label>
 
   <label class="form__label">
+    <span class="form__text">Due date:</span>
+    <input 
+      [ngModel]="detail?.date" 
+      #name="ngModel"
+      class="form__input"
+      name="date" 
+      type="date" 
+    />
+  </label>
+
+  <label class="form__label">
     <span class="form__text">Id:</span>
     <input 
       #id="ngModel"
@@ -65,6 +76,11 @@
       type="checkbox" 
     />
   </label>
+
+  <p class="form__code">
+    <!-- data pipe -->
+    {{ detail | json }}
+  </p>
   
   <app-button 
     text="Submit"
