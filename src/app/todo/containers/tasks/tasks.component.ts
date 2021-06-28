@@ -56,6 +56,6 @@ export class TasksComponent implements OnInit {
   }
 
   handeView(task: Task) {
-    this.router.navigate([`/todo/${task.id}`])
+    this.router.navigate(["/todo", task.id])
   }
 }
