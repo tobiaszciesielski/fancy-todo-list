@@ -17,16 +17,16 @@ export class InMemoryDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        name: 'Date with wife 👩‍❤️',
+        name: 'Read book 📚',
         isDone: false,
-        description: 'Cook shrimps and buy white wine',
+        description: 'Read 20 pages of new book',
         date: '23-04-2021',
       },
       {
         id: 3,
         name: 'Make Angular course 50% done 🧠',
         isDone: false,
-        description: 'Keep going, you are the bes',
+        description: 'Keep going, you are the best!',
       },
     ];
 
