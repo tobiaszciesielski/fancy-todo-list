@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 // Services
 import { TodoService } from './todo.service';
@@ -19,6 +20,10 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { TasksComponent } from './containers/tasks/tasks.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
+
+const routes: Routes = [
+  { path: 'todo', component: TodoComponent }
+]
 
 @NgModule({
   declarations: [
@@ -42,6 +47,7 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
       dataEncapsulation: false,
       delay: 1000,
     }),
+    RouterModule.forChild(routes)
   ],
   exports: [TodoComponent],
   providers: [TodoService],
