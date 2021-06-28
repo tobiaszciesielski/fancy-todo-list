@@ -1,3 +1,6 @@
 <div>
-  <app-task-form [detail]="task"></app-task-form>  
+  <app-task-form 
+    [detail]="task"
+    (update)="handleUpdate($event)"
+  ></app-task-form>  
 </div>

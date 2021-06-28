@@ -19,4 +19,12 @@ export class TaskViewerComponent implements OnInit {
       .getTask(1)
       .subscribe((task: Task) => this.task = task)
   }
+
+  handleUpdate(event: Task) {
+    this.todoService
+      .updateTask(event)
+      .subscribe((_) => {
+        this.task = Object.assign({}, this.task, event)
+      })
+  }
 }

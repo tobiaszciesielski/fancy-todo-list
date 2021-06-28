@@ -1,5 +1,5 @@
 <!-- {{ form.value | json }} -->
-<form #form="ngForm" novalidate class="form">
+<form (ngSubmit)="handleSubmit(form.value, !!form.valid)" #form="ngForm" novalidate class="form">
     <label class="form__label">
       <span class="form__text">Title:</span>
       <input 
@@ -48,6 +48,11 @@
       />
     </label>
     
-    <app-button [text]="'Submit'" [color]="'#1763ef'" [type]="'submit'" [disabled]="form.invalid ? true : false"></app-button>
+    <app-button 
+      [text]="'Submit'"
+      [color]="'#1763ef'" 
+      [type]="'submit'" 
+      [disabled]="!!form.invalid">
+    </app-button>
   </form>
   

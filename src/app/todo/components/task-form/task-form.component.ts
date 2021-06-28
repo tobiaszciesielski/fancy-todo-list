@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Task } from '../../models/Task';
 
@@ -9,6 +9,7 @@ import { Task } from '../../models/Task';
 })
 export class TaskFormComponent implements OnInit {
   @Input() detail!: Task;
+  @Output() update = new EventEmitter<Task>();
 
   constructor() {}
 
@@ -16,5 +17,11 @@ export class TaskFormComponent implements OnInit {
 
   toggleChange(event: boolean) {
     this.detail.isDone = event;
+  }
+
+  handleSubmit(task: Task, isValid: boolean) {
+    if (isValid) {
+      this.update.emit(task);
+    }
   }
 }
