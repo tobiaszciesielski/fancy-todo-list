@@ -25,6 +25,6 @@ export class TodoService {
   }
 
   deleteTask(task: Task): Observable<Task> {
-    return this.httpClient.put<Task>(TASK_API, task);
+    return this.httpClient.delete<Task>(`${TASK_API}/${task.id}`);
   }
 }

@@ -22,8 +22,14 @@ import { TaskComponent } from './components/task/task.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 
 const routes: Routes = [
-  { path: 'todo', component: TodoComponent }
-]
+  {
+    path: 'todo',
+    children: [
+      { path: '', component: TodoComponent },
+      { path: ':id', component: TaskViewerComponent },
+    ],
+  },
+];
 
 @NgModule({
   declarations: [
@@ -47,7 +53,7 @@ const routes: Routes = [
       dataEncapsulation: false,
       delay: 1000,
     }),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   exports: [TodoComponent],
   providers: [TodoService],

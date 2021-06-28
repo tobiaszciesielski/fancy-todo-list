@@ -1,30 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TodoService } from '../../todo.service';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
 
-import { Task } from "../../models/Task";
+import { Task } from '../../models/Task';
 
 @Component({
   selector: 'app-task-viewer',
   templateUrl: './task-viewer.component.html',
-  styleUrls: ['./task-viewer.component.scss'],
 })
 export class TaskViewerComponent implements OnInit {
   task!: Task;
-  
-  constructor(private todoService: TodoService) {}
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private todoService: TodoService,
+  ) {}
 
   ngOnInit() {
-    this.todoService
-      .getTask(1)
-      .subscribe((task: Task) => this.task = task)
+    this.route.params
+      .pipe(switchMap((data) => this.todoService.getTask(data.id)))
+      .subscribe((data: Task) => (this.task = data));
   }
 
   handleUpdate(event: Task) {
-    this.todoService
-      .updateTask(event)
-      .subscribe((_) => {
-        this.task = Object.assign({}, this.task, event)
-      })
+    this.todoService.updateTask(event).subscribe((_) => {
+      this.task = Object.assign({}, this.task, event);
+    });
   }
 }
