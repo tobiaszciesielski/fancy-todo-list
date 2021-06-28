@@ -15,7 +15,7 @@ import { Component } from '@angular/core';
     </style>
     <div class="greetings">
       <h1>Wlecome to Fancy TODO Application!</h1>
-      <p>Click here to try it</p>
+      <p>Click <a routerLink="/app">here</a> to try it</p>
     </div>
   `,
 })

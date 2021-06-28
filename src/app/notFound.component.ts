@@ -10,12 +10,12 @@ import { Component } from '@angular/core';
         align-items: center;
         flex-direction: column;
         height: 100%;
-        gap: 10px 
+        gap: 10px;
       }
     </style>
     <div class="not-found">
       <h1>404: Not Found</h1>
-      <p>Back to homepage</p>
+      <p>Back to <a routerLink="/">homepage</a></p>
     </div>
   `,
 })

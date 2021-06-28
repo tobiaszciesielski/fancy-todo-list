@@ -1,58 +1,57 @@
 <!-- {{ form.value | json }} -->
 <form (ngSubmit)="handleSubmit(form.value, !!form.valid)" #form="ngForm" novalidate class="form">
-    <label class="form__label">
-      <span class="form__text">Title:</span>
-      <input 
-        [ngModel]="detail?.name" 
-        #name="ngModel"
-        class="form__input"
-        name="name" 
-        type="text" 
-        required
-      />
-      <div 
-        *ngIf="name.errors?.required && name.touched"
-        class="form__error"
-      >
-        Please enter task title
-      </div>
-    </label>
+  <label class="form__label">
+    <span class="form__text">Title:</span>
+    <input 
+      [ngModel]="detail?.name" 
+      #name="ngModel"
+      class="form__input"
+      name="name" 
+      type="text" 
+      required
+    />
+    <div 
+      *ngIf="name.errors?.required && name.touched"
+      class="form__error"
+    >
+      Please enter task title
+    </div>
+  </label>
 
-    <label class="form__label">
-      <span class="form__text">Id:</span>
-      <input 
-        #id="ngModel"
-        [ngModel]="detail?.id" 
-        class="form__input"
-        name="id" 
-        type="number" 
-        required
-      />
-      <div 
-        *ngIf="id.errors?.required && name.touched"
-        class="form__error"
-      >
-        Please enter task id
-      </div>
-    </label>
+  <label class="form__label">
+    <span class="form__text">Id:</span>
+    <input 
+      #id="ngModel"
+      [ngModel]="detail?.id" 
+      class="form__input"
+      name="id" 
+      type="number" 
+      required
+    />
+    <div 
+      *ngIf="id.errors?.required && name.touched"
+      class="form__error"
+    >
+      Please enter task id
+    </div>
+  </label>
 
-    <label class="form__label">
-      <span class="form__text">Complete</span>
-      <input 
-        #status="ngModel"
-        [ngModel]="detail?.isDone" 
-        class="form__input"
-        (ngModelChange)="toggleChange($event)"
-        name="status" 
-        type="checkbox" 
-      />
-    </label>
-    
-    <app-button 
-      [text]="'Submit'"
-      [color]="'#1763ef'" 
-      [type]="'submit'" 
-      [disabled]="!!form.invalid">
-    </app-button>
-  </form>
+  <label class="form__label">
+    <span class="form__text">Complete</span>
+    <input 
+      #status="ngModel"
+      [ngModel]="detail?.isDone" 
+      class="form__input"
+      (ngModelChange)="toggleChange($event)"
+      name="status" 
+      type="checkbox" 
+    />
+  </label>
   
+  <app-button 
+    text="Submit"
+    color="#1763ef" 
+    type="submit" 
+    [disabled]="!!form.invalid">
+  </app-button>
+</form>
