@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TodoService } from '../../todo.service';
-import { ActivatedRoute, Router, Params } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 
 import { Task } from '../../models/Task';
@@ -26,8 +26,15 @@ export class TaskViewerComponent implements OnInit {
   }
 
   handleUpdate(event: Task) {
-    this.todoService.updateTask(event).subscribe((_) => {
-      this.task = Object.assign({}, this.task, event);
-    });
+    this.todoService
+      .updateTask(event)
+      .subscribe((_) => {
+        this.task = Object.assign({}, this.task, event);
+        this.goBack()
+      });
+  }
+
+  goBack() {
+    this.router.navigate(['/todo']);
   }
 }

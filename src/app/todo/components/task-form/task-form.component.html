@@ -19,6 +19,24 @@
   </label>
 
   <label class="form__label">
+    <span class="form__text">Description:</span>
+    <input 
+      [ngModel]="detail?.description" 
+      #name="ngModel"
+      class="form__input"
+      name="description" 
+      type="text" 
+      required
+    />
+    <div 
+      *ngIf="name.errors?.required && name.touched"
+      class="form__error"
+    >
+      Please enter description
+    </div>
+  </label>
+
+  <label class="form__label">
     <span class="form__text">Id:</span>
     <input 
       #id="ngModel"
@@ -43,7 +61,7 @@
       [ngModel]="detail?.isDone" 
       class="form__input"
       (ngModelChange)="toggleChange($event)"
-      name="status" 
+      name="isDone" 
       type="checkbox" 
     />
   </label>

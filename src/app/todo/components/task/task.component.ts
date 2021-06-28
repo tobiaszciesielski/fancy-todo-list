@@ -21,6 +21,7 @@ export class TaskComponent implements OnInit {
   @Output() remove = new EventEmitter<Task>();
   @Output() rename = new EventEmitter<{ task: Task; name: string }>();
   @Output() toggleStatus = new EventEmitter<Task>();
+  @Output() view = new EventEmitter<Task>();
   @ViewChild('inputField') inputField!: ElementRef;
   editMode: boolean = false;
 
@@ -48,5 +49,9 @@ export class TaskComponent implements OnInit {
 
   onRemove() {
     this.remove.emit(this.task);
+  }
+
+  showTask() {
+    this.view.emit(this.task)
   }
 }
