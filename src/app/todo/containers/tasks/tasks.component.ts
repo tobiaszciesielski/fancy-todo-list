@@ -28,26 +28,26 @@ export class TasksComponent implements OnInit {
       })
   }
 
-  handleRename({ task, name }: any) {
-    task.name = name;
-    this.todoService
-      .updateTask(task)
-      .subscribe((_) => {
-        this.tasks = this.tasks.map((t) => {
-          if (task.id === t.id) {
-            task = Object.assign({}, task, { name });
-          }
-          return t;
-        });
-      });
+  replaceWithUpdatedTask(newTask: Task) {
+    this.tasks = this.tasks.map((t) => {
+      if (newTask.id === t.id) {
+        t = newTask
+      }
+      return t;
+    });
   }
 
-  toggleStatus({ id }: any) {
-    this.tasks = this.tasks.map((task) => {
-      if (task.id === id) {
-        task.isDone = !task.isDone;
-      }
-      return task;
-    });
+  handleRename({ task, name }: any) {
+    const newTask = Object.assign({}, task, {name});
+    this.todoService
+      .updateTask(newTask)
+      .subscribe((_) => this.replaceWithUpdatedTask(newTask));
+  }
+
+  toggleStatus(task: Task) {
+    const newTask = Object.assign({}, task, { isDone: !task.isDone });
+    this.todoService
+      .updateTask(newTask)
+      .subscribe((_) => this.replaceWithUpdatedTask(newTask));
   }
 }

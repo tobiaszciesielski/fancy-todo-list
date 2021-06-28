@@ -20,7 +20,7 @@ export class TaskComponent implements OnInit {
   @Input() index!: number;
   @Output() remove = new EventEmitter<Task>();
   @Output() rename = new EventEmitter<{ task: Task; name: string }>();
-  @Output() toggleStatus = new EventEmitter<{ id: number }>();
+  @Output() toggleStatus = new EventEmitter<Task>();
   @ViewChild('inputField') inputField!: ElementRef;
   editMode: boolean = false;
 
@@ -43,7 +43,7 @@ export class TaskComponent implements OnInit {
   }
 
   onStatusChange() {
-    this.toggleStatus.emit({ id: this.task.id });
+    this.toggleStatus.emit(this.task);
   }
 
   onRemove() {
